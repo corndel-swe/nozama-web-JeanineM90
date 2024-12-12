@@ -3,3 +3,4 @@ document.addEventListener('DOMContentLoaded', async function () {
   const data = await res.json()
   console.log(data)
 })
+ 

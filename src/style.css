@@ -1,18 +1,68 @@
 /* No consistency in CSS classes, inline styles dominate */
+
+
+:root {
+  --font-title: Arial, sans-serif;
+  --font-body: Georgia, serif;
+  --font-size-base: clamp(1rem);
+  --font-size-large: 2rem;
+  --padding-base: 1rem;
+  --text-align:left;
+  --color-scheme: light dark;
+
+  --grey-light: hsl(0, 0%, 80%);
+  --grey-lighter: hsl(0, 0%, 87.5%);
+  --grey-lightest: hsl(0, 0%, 95%);
+
+  --grey-dark: hsl(0, 0%, 15%);
+  --grey-darker: hsl(0, 0%, 10%);
+  --grey-darkest: hsl(0, 0%, 5%);
+
+  --text: light-dark(var(--grey-darkest), var(--grey-lightest));
+  
+  --prefers-color-scheme: 
+
+
+}
+
+
+
 body {
-  background-color: #f5f5f5;
-  font-family: Arial, sans-serif;
+  background-color: light-dark(hsl(0, 0%, 80%), hsl(0, 0%, 5%));
+  
+  .dark {
+    color-scheme: dark;
+  }
+
+  font-family: var(--font-body);
+  font: var(--font-size-base);
+  padding: var(--padding-base);
 }
 
 header {
   text-align: center;
   padding: 10px;
   background-color: #e0e0e0;
+
+  .light {
+    color-scheme: light;
+  }
+  
+  font-family: var(--font-title);
+  size: var(--font-size-large)
+}
+
+@media (max-width: 1024px){
+h1 {
+  font-family: var(--font-title);
+  size: var(--font-size-large)
+}
 }
 
 .product {
   border: 1px solid black;
   margin: 10px;
   padding: 10px;
-  width: 300px; /* Not responsive */
+  width: 300px;
+  /* Not responsive */
 }
